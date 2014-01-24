@@ -4,62 +4,29 @@
   $(document).ready(init);
 
   function init(){
-    $('#add-item').click(addItem);
+    $('#play').click(randArray);
   }
 
-  function addItem(e){
-    var itm = $('#itm').val();
-    var qty = $('#qty').val();
-    var amt = $('#amt').val();
-    var total = qty * amt;
-    addItemToTable(itm, qty, amt, total);
-    updateTotals();
-    e.preventDefault();
+  var ltrs = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+
+  function rand(){
+    return Math.floor(Math.random() * 26);
   }
 
-  function addItemToTable(itm, qty, amt, total){
-    var $tr = $('<tr>');
-    var $itm = $('<td>');
-    $itm.text(itm);
-    var $qty = $('<td>');
-    $qty.text(qty);
-    var $amt = $('<td>');
-    $amt.text(numToCurrency(amt * 1));
-    var $total = $('<td>');
-    $total.text(numToCurrency(total * 1));
-
-    $tr.append($itm, $qty, $amt, $total);
-    $('table tbody').append($tr);
-  }
-
-  function numToCurrency(num){
-    return '$' + num.toFixed(2);
-  }
-
-  function updateTotals(){
-    var $amounts =  $('table > tbody > tr > td:nth-child(3)');
-    var nums = transformTdsToNums($amounts);
-    var sumAmounts = sum(nums);
-    $('table > tfoot > tr > td:nth-child(3)').text(numToCurrency(sumAmounts));
-
-    var $totals =  $('table > tbody > tr > td:nth-child(4)');
-    var nums2 = transformTdsToNums($totals);
-    var sumTotals = sum(nums2);
-    $('table > tfoot > tr > td:nth-child(4)').text(numToCurrency(sumTotals));
-  }
-
-  function sum(nums){
-    var total = 0;
-    for(var i=0; i< nums.length; i++){
-      total += nums[i];
+  function addGrid(randLtrs){
+    for(var i = 20; i>0; i--){
+      var $box = $('<div class="box">').text(randLtrs[i]);
+      $('#grid').append($box);
     }
-    return total;
   }
 
-  function transformTdsToNums($tds){
-    return $.map($tds, function(td){
-      return td.textContent.slice(1) * 1;
-    });
+  function randArray(){
+    var randLtrs = [];
+    for(var i = 20; i>=0; i--){
+      randLtrs.push(ltrs[rand()]);
+    }
+    addGrid(randLtrs);
+    console.log(randLtrs);
   }
 
 })();

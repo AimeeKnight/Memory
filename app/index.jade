@@ -13,38 +13,18 @@ html(class="no-js", lang="en")
     .row
       .small-12.columns
         .panel
-          h1 The Emporium
+          h1 Memory
     .row
-      .small-8.columns
-        form
-          .row
-            .small-6.columns
-              label Item
-              input#itm(type="text", placeholder="ipod touch", autofocus)
-            .small-2.columns
-              label Quantity
-              input#qty(type="text", placeholder="3")
-            .small-2.columns
-              label Amount
-              input#amt(type="text", placeholder="3.50")
-            .small-2.columns
-              button.tiny.radius#add-item Add Item
+      .small-4.columns
+        button.small.radius.left#play Play
+        button.small.radius.left#play Reset
 
       .small-4.columns
-        table
-          thead
-            tr
-              th Item
-              th Quantity
-              th Amount
-              th Total
-          tfoot
-            tr
-              td
-              td 0
-              td $0.00
-              td $0.00
-          tbody
+        h4 Letters
+          h6#letters
+
+    .row
+      .small-12.columns#grid
 
     script(src='/js/vendor/jquery-1.10.2.js')
     script(src='/js/vendor/foundation.js')
