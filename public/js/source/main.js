@@ -19,7 +19,7 @@
     return Math.floor(Math.random() * ltrs.length);
   }
 
-  function addGrid(){
+  function displayLtrs(){
     var str = ltrs.join(' ');
     $('#letters').text(str);
   }
@@ -32,7 +32,7 @@
     }
     randLtrs = randLtrs.concat(randLtrs);
     shuffleLtrs(randLtrs);
-    addGrid();
+    displayLtrs();
     console.log(randLtrs);
   }
 

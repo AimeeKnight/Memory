@@ -19,11 +19,14 @@ html(class="no-js", lang="en")
         button.small.radius.left#play Play
         button.small.radius.left#reset Reset
 
-      .small-12.columns.small-centered
+    .row
+      .small-4.columns.board
         h4 Letters:
           h6#letters _ _ _ _ _ _ _ _ _ _
+      .small-4.columns.board
         h4 Score:
           h6#score 0
+      .small-4.columns.board
         h4 Trys:
           h6#trys 0
 
@@ -31,27 +34,28 @@ html(class="no-js", lang="en")
       .small-8.columns.small-centered
         .panel#grid
           .center
-            .box.small-4.columns
-            .box.small-4.columns
-            .box.small-4.columns
-            .box.small-4.columns
-            .box.small-4.columns
-            .box.small-4.columns
-            .box.small-4.columns
-            .box.small-4.columns
-            .box.small-4.columns
-            .box.small-4.columns
-            .box.small-4.columns
-            .box.small-4.columns
-            .box.small-4.columns
-            .box.small-4.columns
-            .box.small-4.columns
-            .box.small-4.columns
-            .box.small-4.columns
-            .box.small-4.columns
-            .box.small-4.columns
-            .box.small-4.columns
+            .box
+            .box
+            .box
+            .box
+            .box
+            .box
+            .box
+            .box
+            .box
+            .box
+            .box
+            .box
+            .box
+            .box
+            .box
+            .box
+            .box
+            .box
+            .box
+            .box
           .clear
+
     script(src='/js/vendor/jquery-1.10.2.js')
     script(src='/js/vendor/foundation.js')
     script(src='/js/source/main.js')
