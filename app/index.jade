@@ -17,14 +17,19 @@ html(class="no-js", lang="en")
     .row
       .small-4.columns
         button.small.radius.left#play Play
-        button.small.radius.left#play Reset
+        button.small.radius.left#reset Reset
 
       .small-4.columns
         h4 Letters
           h6#letters
 
     .row
-      .small-12.columns#grid
+      .small-6.columns
+        .panel.left#grid
+
+    .row
+      .small-6.columns
+        .panel.left#grid2
 
     script(src='/js/vendor/jquery-1.10.2.js')
     script(src='/js/vendor/foundation.js')
