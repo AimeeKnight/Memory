@@ -6,7 +6,7 @@
   function init(){
     $('#play').click(randArray);
     $('#grid').on('click', '.box', reveal);
-    $('#clear').click(randArray);
+    $('#clear').click(clear);
   }
 
   var trys = 0;
@@ -53,7 +53,7 @@
       $(revealed[0]).removeClass('showing').text('');
       $(revealed[1]).removeClass('showing').text('');
       revealed = [];
-    },3000);
+    },2000);
   }
 
   function shuffleLtrs(dupLtrs) {
@@ -64,6 +64,14 @@
       dupLtrs[j] = temp;
     }
     return dupLtrs;
+  }
+
+  function clear(){
+    randArray();
+    revealed = [];
+    $('.box').each(function(idx, el){
+      el.text('');
+    });
   }
 
 })();
