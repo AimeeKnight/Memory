@@ -5,11 +5,12 @@
 
   function init(){
     $('#play').click(randArray);
-    $('#grid').on('mousedown', '.box', reveal);
+    $('#grid').on('click', '.box', reveal);
   }
 
+  var trys = 0;
+  var score = 0;
   var revealed = [];
-  var showing = 0;
   var randLtrs;
   var ltrs = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 
@@ -37,28 +38,24 @@
   }
 
   function reveal(){
-    if (showing === 0){
-      var $first = $(this);
-      var firstIdx = $first.index();
-      var firstVal = randLtrs[firstIdx];
-      $first.addClass('showing');
-      $first.text(firstVal);
-      showing ++;
-      revealed.push($first);
-    }else{
-      var $next = $(this);
-      var nextIdx = $next.index();
-      var nextVal = randLtrs[nextIdx];
-      $next.addClass('showing');
-      $next.text(nextVal);
-      showing ++;
-      revealed.push($next);
-    }
-    //$this.mouseup(function(){
-      //$this.text('');
-    //});
-  }
+    if ($(this).hasClass('showing')){return;}
+    if (revealed.length >= 2){return;}
 
+    $(this).addClass('showing').text(randLtrs[$(this).index()]);
+    revealed.push(this);
+    if (revealed.length === 1){return;}
+    if ($(revealed[0]).text() === $(revealed[1]).text()){
+      $('#score').text(score + 1);
+      revealed = [];
+      return;
+    }
+    $('#trys').text(trys + 1);
+    setTimeout(function(){
+      $(revealed[0]).removeClass('showing').text('');
+      $(revealed[1]).removeClass('showing').text('');
+      revealed = [];
+    },3000);
+  }
 
   function shuffleLtrs(dupLtrs) {
     for(var i = dupLtrs.length -1; i>0; i--) {
