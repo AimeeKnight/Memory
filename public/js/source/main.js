@@ -6,6 +6,7 @@
   function init(){
     $('#play').click(randArray);
     $('#grid').on('click', '.box', reveal);
+    $('#clear').click(randArray);
   }
 
   var trys = 0;
@@ -18,12 +19,10 @@
     return Math.floor(Math.random() * ltrs.length);
   }
 
-  //function addGrid(){
-    //for(var i = 20; i>0; i--){
-      //var $box = $('<div class="box">');
-      //$('#grid').append($box);
-    //}
-  //}
+  function addGrid(){
+    var str = ltrs.join(' ');
+    $('#letters').text(str);
+  }
 
   function randArray(){
     randLtrs = [];
@@ -33,7 +32,7 @@
     }
     randLtrs = randLtrs.concat(randLtrs);
     shuffleLtrs(randLtrs);
-    //addGrid();
+    addGrid();
     console.log(randLtrs);
   }
 

@@ -4,53 +4,54 @@ html(class="no-js", lang="en")
   head
     meta(charset='utf-8')
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title The Emporium
+    title Memory
     link(rel="stylesheet", href="/css/normalize.css")
     link(rel="stylesheet", href="/css/foundation.css")
     link(rel="stylesheet", href="/css/app.css")
     script(src='/js/vendor/modernizr.js')
   body
     .row
-      .small-12.columns
+      .small-12.columns.small-centered
         .panel
           h1 Memory
     .row
-      .small-4.columns
+      .small-12.columns.small-centered
         button.small.radius.left#play Play
         button.small.radius.left#reset Reset
 
-      .small-4.columns
-        h4 Letters
-          h6#letters
-          h6#score
-          h6#trys
+      .small-12.columns.small-centered
+        h4 Letters:
+          h6#letters _ _ _ _ _ _ _ _ _ _
+        h4 Score:
+          h6#score 0
+        h4 Trys:
+          h6#trys 0
 
     .row
-      .small-6.columns
-        .panel.left#grid
-          .box#1
-          .box#2
-          .box#3
-          .box#4
-          .box#5
-          .box#6
-          .box#7
-          .box#8
-          .box#9
-          .box#10
-          .box#11
-          .box#12
-          .box#13
-          .box#14
-          .box#15
-          .box#16
-          .box#17
-          .box#18
-          .box#19
-          .box#20
-
-
-
+      .small-8.columns.small-centered
+        .panel#grid
+          .center
+            .box.small-4.columns
+            .box.small-4.columns
+            .box.small-4.columns
+            .box.small-4.columns
+            .box.small-4.columns
+            .box.small-4.columns
+            .box.small-4.columns
+            .box.small-4.columns
+            .box.small-4.columns
+            .box.small-4.columns
+            .box.small-4.columns
+            .box.small-4.columns
+            .box.small-4.columns
+            .box.small-4.columns
+            .box.small-4.columns
+            .box.small-4.columns
+            .box.small-4.columns
+            .box.small-4.columns
+            .box.small-4.columns
+            .box.small-4.columns
+          .clear
     script(src='/js/vendor/jquery-1.10.2.js')
     script(src='/js/vendor/foundation.js')
     script(src='/js/source/main.js')
