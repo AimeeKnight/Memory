@@ -6,7 +6,7 @@
   function init(){
     $('#play').click(randArray);
     $('#grid').on('click', '.box', reveal);
-    $('#clear').click(clear);
+    $('#reset').click(clear);
   }
 
   var trys = 0;
@@ -19,20 +19,21 @@
     return Math.floor(Math.random() * ltrs.length);
   }
 
-  function displayLtrs(){
-    var str = ltrs.join(' ');
+  function displayLtrs(picks){
+    var str = picks.join(' ');
     $('#letters').text(str);
   }
 
   function randArray(){
     randLtrs = [];
+    //debugger;
     for(var i = 10; i>0; i--){
       var ltr = ltrs.splice(rand(),1);
       randLtrs.push(ltr[0]);
     }
     randLtrs = randLtrs.concat(randLtrs);
     shuffleLtrs(randLtrs);
-    displayLtrs();
+    displayLtrs(randLtrs);
     console.log(randLtrs);
   }
 
@@ -67,10 +68,11 @@
   }
 
   function clear(){
+    ltrs = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
     randArray();
     revealed = [];
     $('.box').each(function(idx, el){
-      el.text('');
+      $(el).text('').removeClass('showing');
     });
   }
 
