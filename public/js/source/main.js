@@ -10,7 +10,7 @@
   }
 
   var total = 0;
-  var trys = 0;
+  var tries = 0;
   var score = 0;
   var revealed = [];
   var randLtrs;
@@ -53,8 +53,8 @@
       winDisplay();
       return;
     }
-    trys ++;
-    $('#trys').text(trys);
+    tries ++;
+    $('#tries').text(tries);
     setTimeout(function(){
       $(revealed[0]).removeClass('showing').text('');
       $(revealed[1]).removeClass('showing').text('');
