@@ -9,6 +9,7 @@
     $('#reset').click(clear);
   }
 
+  var total = 0;
   var trys = 0;
   var score = 0;
   var revealed = [];
@@ -45,11 +46,15 @@
     revealed.push(this);
     if (revealed.length === 1){return;}
     if ($(revealed[0]).text() === $(revealed[1]).text()){
-      $('#score').text(score + 1);
+      score ++;
+      $('#score').text(score);
       revealed = [];
+      total ++;
+      winDisplay();
       return;
     }
-    $('#trys').text(trys + 1);
+    trys ++;
+    $('#trys').text(trys);
     setTimeout(function(){
       $(revealed[0]).removeClass('showing').text('');
       $(revealed[1]).removeClass('showing').text('');
@@ -74,6 +79,15 @@
     $('.box').each(function(idx, el){
       $(el).text('').removeClass('showing');
     });
+  }
+
+  function winDisplay(){
+    if (total === 9){
+      $('.box').each(function(idx,el){
+        console.log('hi');
+        $(el).text(randLtrs[$(el).index()]);
+      });
+    }
   }
 
 })();
