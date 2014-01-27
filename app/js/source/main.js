@@ -85,7 +85,7 @@
     if (total === 9){
       $('.box').each(function(idx,el){
         console.log('hi');
-        $(el).text(randLtrs[$(el).index()]);
+        $(el).addClass('showing').text(randLtrs[$(el).index()]);
         $('#score').text('You won!');
       });
     }
