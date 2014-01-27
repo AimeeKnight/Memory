@@ -32,9 +32,9 @@
       var ltr = ltrs.splice(rand(),1);
       randLtrs.push(ltr[0]);
     }
+    displayLtrs(randLtrs);
     randLtrs = randLtrs.concat(randLtrs);
     shuffleLtrs(randLtrs);
-    displayLtrs(randLtrs);
     console.log(randLtrs);
   }
 
@@ -86,6 +86,7 @@
       $('.box').each(function(idx,el){
         console.log('hi');
         $(el).text(randLtrs[$(el).index()]);
+        $('#score').text('You won!');
       });
     }
   }
